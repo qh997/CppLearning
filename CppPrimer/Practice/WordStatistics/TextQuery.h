@@ -1,3 +1,6 @@
+#ifndef __TEXTQUERY_H__
+#define __TEXTQUERY_H__
+
 #include <string>
 #include <vector>
 #include <fstream>
@@ -19,3 +22,5 @@ class TextQuery
     std::vector<std::string> lines_of_text;
     std::map< std::string, std::set<line_no> > word_map;
 };
+
+#endif //__TEXTQUERY_H__
