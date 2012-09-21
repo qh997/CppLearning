@@ -158,6 +158,13 @@ int main()
     Sales_item si2(bi);
     SHOW_VAR((*si1).book());
     SHOW_VAR(si2->book());
+    Sales_item si3;
+    si3 = Sales_item(ib);
+    Basket bk;
+    bk.add_item(si1);
+    bk.add_item(si2);
+    bk.add_item(si3);
+    SHOW_VAR(bk.totle());
 
     return EXIT_SUCCESS;
 }
