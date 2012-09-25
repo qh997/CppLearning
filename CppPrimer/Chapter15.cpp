@@ -121,13 +121,13 @@ class Basket
         {items.insert(item);}
     size_type size(const Sales_item &i) const
         {return items.count(i);}
-    double totle() const;
+    double total() const;
 
   private:
     multiset<Sales_item, Comp> items;
 };
 
-double Basket::totle() const
+double Basket::total() const
 {
     double sum = 0.0;
 
@@ -164,7 +164,7 @@ int main()
     bk.add_item(si1);
     bk.add_item(si2);
     bk.add_item(si3);
-    SHOW_VAR(bk.totle());
+    SHOW_VAR(bk.total());
 
     return EXIT_SUCCESS;
 }
