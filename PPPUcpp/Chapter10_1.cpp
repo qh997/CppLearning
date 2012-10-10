@@ -4,10 +4,12 @@
 using namespace std;
 
 void skip_to_int();
+int get_int();
+int get_int(int low, int high);
 
 int main()
 {
-    cout << "Please enter an integer in the range 1 to 10(inclusive):" << endl;
+/*    cout << "Please enter an integer in the range 1 to 10(inclusive):" << endl;
     int n = 0;
 
     while (true)
@@ -27,7 +29,9 @@ int main()
             cout << "Sorry, that was not a number; please try again" << endl;
             skip_to_int();
         }
-    }
+    }*/
+
+    get_int(1, 10);
 
     return 0;
 }
@@ -44,10 +48,43 @@ void skip_to_int()
             if (isdigit(ch))
             {
                 cin.unget();
-                return
+                return;
             }
         }
     }
 
     throw runtime_error("no input");
+}
+
+int get_int()
+{
+    int n = 0;
+    while (true)
+    {
+        if (cin >> n)
+            return n;
+
+        cout << "Sorry, that was not a number; please try again" << endl;
+        skip_to_int();
+    }
+}
+
+int get_int(int low, int high)
+{
+    cout << "Please enter an integer in the range "
+         << low << " to " << high << " (inclusive):"
+         << endl;
+
+    while (true)
+    {
+        int n = get_int();
+        if (low <= n && n <= high)
+            return n;
+
+        cout << "Sorry " << n
+             << " is not in the ["
+             << low << ':' << high
+             << "] range; please try again"
+             << endl;
+    }
 }
