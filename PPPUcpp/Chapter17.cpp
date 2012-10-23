@@ -1,5 +1,6 @@
 #include <iostream>
 #include <stdexcept>
+
 #include "vector.h"
 
 using namespace std;
@@ -14,7 +15,7 @@ int main()
     SHOW_VAR(sizeof(bool));
     SHOW_VAR(sizeof(double));
 
-    vector v(5);
+    vector<int> v(5);
     for (int i = 0; i < 5; ++i)
     {
         v.set(i, 1.1 * i);

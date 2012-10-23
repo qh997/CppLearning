@@ -35,8 +35,8 @@ struct XX {X a; X b;};
 
 int main()
 {
-    vector v(3);
-    vector v2 = v;
+    vector<int> v(3);
+    vector<int> v2 = v;
 
     v.set(1, 99);
     v2.set(0, 88);
