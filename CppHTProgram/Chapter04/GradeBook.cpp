@@ -42,31 +42,42 @@ void GradeBook::displayMessage()
 
 void GradeBook::determineClassAverage()
 {
-    int total;
-    int gradeCounter;
-    int grade;
-    double average;
+    int total = 0;
+    int gradeCounter = 0;
+    int grade = 0;
+    double average = 0.0;
 
     total = 0;
     gradeCounter = 0;
 
-    cout << "Enter grade or -1 to quit: ";
-    cin >> grade;
-
-    while (grade != -1)
+    do
     {
-        total = total + grade;
-        gradeCounter = gradeCounter + 1;
-
         cout << "Enter grade or -1 to quit: ";
         cin >> grade;
-    }
+
+        if (!cin.fail())
+        {
+            if (-1 == grade)
+                break;
+
+            cout << "D: grade = " << grade << endl;
+            total = total + grade;
+            gradeCounter = gradeCounter + 1;
+        }
+        else
+        {
+            cin.clear();
+            cin.ignore();
+            cout << endl;
+        }
+
+    } while (true);
 
     if (gradeCounter != 0)
     {
         average = static_cast<double>(total) / gradeCounter;
 
-        cout << "\nTotal of all 10 grades is "
+        cout << "\nTotal of all " << gradeCounter << " grades is "
              << total << endl;
         cout << "Class average is " << setprecision(2) << fixed
              << average << endl;
