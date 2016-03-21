@@ -3,15 +3,26 @@
 
 class Time {
 public:
-	Time();
-	void setTime(int, int, int);
-	void printUniversal();
+	Time(int h = 0, int m = 0, int s = 0);
+
+	void setTime(int h, int m, int s);
+	void setHour(int h);
+	void setMinute(int m);
+	void setSecond(int s);
+	int &badSetTime();
+
+	int getHour() const;
+	int getMinute() const;
+	int getSecond() const;
+
+	void printUniversal() const;
 	void printStandard();
 
 private:
 	int hour;
 	int minute;
 	int second;
+	int secTotal;
 };
 
 #endif
